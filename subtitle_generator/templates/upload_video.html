@@ -1,0 +1,88 @@
+{% load static %}  <!-- بارگذاری تگ static -->
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>آپلود ویدیو</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">  <!-- تگ static -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+        @font-face {
+            font-family: 'farhang';
+            src: url('/static/font/Farhang2-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'farhang';
+            src: url('/static/font/Farhang2-Bold.ttf') format('truetype');
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'farhang', serif;
+            font-weight: normal;
+            font-style: normal;
+            background-color: #192a56;
+        }
+
+        .header-container {
+            margin-top: 20px;
+            margin-bottom: 80px;
+            padding-top: 200px;
+            height: 150px;
+            background-color: #192a56;
+        }
+
+        .upload-container {
+            max-width: 600px;
+            margin: 10px auto;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            background-color: #575fcf;
+        }
+
+        .upload-container h1 {
+            color: white;
+            font-family: 'farhang', sans-serif;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="header-container">
+    <div class="text-center">
+        <h1 style="color: #f8f9fa">ساخت زیرنویس اتوماتیک</h1>
+    </div>
+</div>
+<div class="container">
+    <div class="upload-container text-center">
+        <h1 class="mb-4">آپلود ویدیو</h1>
+        <form method="post" enctype="multipart/form-data" class="text-center">
+            {% csrf_token %}
+            <div class="mb-3">
+                <input type="file" class="form-control" name="video" accept="video/mp4" required>
+            </div>
+            <button class="btn btn-light btn-lg" type="submit">آپلود ویدیو</button>
+        </form>
+
+        {% if srt_file_url %}
+        <div class="mt-5">
+            <h1>زیرنویس تولید شده:</h1>
+            <a class="btn btn-success btn-lg mt-3" href="{{ srt_file_url }}" download>دانلود زیرنویس SRT</a>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+GFzV+GI1spcKPpJfLxmkbiMO2AuB"
+        crossorigin="anonymous"></script>
+
+</body>
+</html>

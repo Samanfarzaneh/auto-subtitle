@@ -1,0 +1,29 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    position: relative; /* برای تعیین موقعیت زیرنویس */
+}
+
+.video-container {
+    position: relative; /* موقعیت نسبی برای زیرنویس */
+    width: 100%; /* یا هر اندازه‌ای که می‌خواهید */
+    max-width: 800px; /* حداکثر عرض */
+    margin: auto;
+}
+
+video {
+    width: 100%; /* ویدیو به اندازه والد خود (video-container) */
+    display: block;
+}
+
+#subtitle-container {
+    position: absolute; /* تغییر موقعیت به مطلق */
+    bottom: 30px; /* فاصله از پایین ویدیو */
+    left: 50%; /* مرکز کردن */
+    transform: translateX(-50%); /* برای مرکز کردن بهتر */
+    color: white; /* رنگ متن پیش‌فرض */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* سایه برای وضوح بیشتر */
+    font-size: 2.5vw; /* اندازه متن بر اساس عرض ویو */
+    pointer-events: none; /* عدم مداخله در کلیک‌ها */
+    white-space: nowrap; /* جلوگیری از شکستن متن */
+}

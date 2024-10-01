@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>زیرنویس آنلاین</title>
+    <link rel="stylesheet" href="{% static 'subtitle_editor/styles.css' %}">
+</head>
+<body>
+    <div class="video-container">
+        <textarea id="subtitle-edit" rows="4" placeholder="زیرنویس را ویرایش کنید..." style="display:block;"></textarea>
+        <video id="video" controls>
+            <source src="{% static 'media/videos/1.MP4' %}" type="video/mp4">
+            <track id="subtitle-track" label="فارسی" kind="subtitles" srclang="fa" src="" default>
+            مرورگر شما از این فرمت پشتیبانی نمی‌کند.
+        </video>
+        <div id="subtitle-container"></div>
+    </div>
+    <input type="file" id="srt-file" accept=".srt">
+    <button id="load-srt">بارگذاری زیرنویس</button>
+    <button id="download-srt" style="display: none;">دانلود زیرنویس اصلاح شده</button>
+
+    <label for="subtitle-color">رنگ زیرنویس:</label>
+    <input type="color" id="subtitle-color" value="#ffffff">
+
+    <label for="stroke-color">رنگ استروک:</label>
+    <input type="color" id="stroke-color" value="#000000">
+
+    <label for="stroke-size">اندازه استروک:</label>
+    <input type="range" id="stroke-size" min="1" max="10" value="2">
+
+    <label for="shadow-color">رنگ سایه:</label>
+    <input type="color" id="shadow-color" value="#000000">
+
+    <label for="shadow-size">اندازه سایه:</label>
+    <input type="range" id="shadow-size" min="1" max="10" value="2">
+
+    <label for="font-size">اندازه فونت:</label>
+    <input type="range" id="font-size" min="10" max="50" value="24">
+
+    <label for="text-shadow">سایه متن:</label>
+    <input type="checkbox" id="text-shadow" checked>
+
+    <label for="text-effect">افکت متن:</label>
+    <select id="text-effect">
+        <option value="none">هیچ</option>
+        <option value="bold">ضخیم</option>
+        <option value="italic">خمیده</option>
+        <option value="underline">زیرخط‌دار</option>
+    </select>
+
+    <script src="{% static 'subtitle_editor/script.js' %}"></script>
+</body>
+</html>
