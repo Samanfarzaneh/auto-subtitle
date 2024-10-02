@@ -14,3 +14,4 @@ tzdata==2024.2
 urllib3==2.2.3
 vosk==0.3.45
 websockets==13.0.1
+python-decouple==3.4
