@@ -58,8 +58,8 @@ WSGI_APPLICATION = 'AutoSubtitle1.wsgi.application'
 # Database
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.sqlite3',  # یا هر انجینی که نیاز دارید
+        'NAME': os.environ.get('DATABASE_URL', BASE_DIR / 'db.sqlite3'),
     }
 }
 
